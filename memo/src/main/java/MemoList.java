@@ -24,7 +24,13 @@ public class MemoList {
 
     }
 
-    public boolean isExist(int memoNumber) {
-        return false;
+    public Memo getMemo(int memoNumber) {
+        int size = this.memoList.size();
+        for (Memo memo : this.memoList) {
+            if (memoNumber == memo.getNumber()) {
+                return memo;
+            }
+        }
+        return null;
     }
 }
