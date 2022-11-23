@@ -1,12 +1,12 @@
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class MemoList {
 
     private List<Memo> memoList;
 
     public MemoList() {
-        this.memoList = new LinkedList<>();
+        this.memoList = new ArrayList<>();
     }
 
     public void create() {
