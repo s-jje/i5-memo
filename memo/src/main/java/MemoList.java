@@ -55,12 +55,13 @@ public class MemoList {
     }
 
 
-    private Memo getMemo(int idx) {
-        this.memoList = memoList;
-        for (Memo memo : this.memoList) {
-            if (memoList.contains(idx)) {
-                return memo;
 
+    public Memo getMemo(int memoNumber) {
+        if (0 < memoNumber && memoNumber <= this.memoList.size()) {
+            for (Memo memo : this.memoList) {
+                if (memoNumber == memo.getNumber()) {
+                    return memo;
+                }
             }
         }
         return null;
