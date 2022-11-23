@@ -26,10 +26,11 @@ public class MemoList {
     }
 
     public Memo getMemo(int memoNumber) {
-        int size = this.memoList.size();
-        for (Memo memo : this.memoList) {
-            if (memoNumber == memo.getNumber()) {
-                return memo;
+        if (0 < memoNumber && memoNumber <= this.memoList.size()) {
+            for (Memo memo : this.memoList) {
+                if (memoNumber == memo.getNumber()) {
+                    return memo;
+                }
             }
         }
         return null;
