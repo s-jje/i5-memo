@@ -19,7 +19,10 @@
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
-# Gradle
+### Gradle ###
+.gradle
+**/build/
+!src/**/build/
 .idea/**/gradle.xml
 .idea/**/libraries
 
