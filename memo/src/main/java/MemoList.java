@@ -1,12 +1,10 @@
 import java.util.List;
-import java.util.Scanner;
-
 public class MemoList {
 
     private List<Memo> memoList;
 
-    public MemoList(List<Memo> memoList) {
-        this.memoList = memoList;
+    public MemoList() {
+        this.memoList = new ArrayList<>();
     }
 
     public void create() {
@@ -46,15 +44,5 @@ public class MemoList {
 
     public void showAll() {
 
-    }
-
-    public Memo getMemo(int memoNumber) {
-        int size = this.memoList.size();
-        for (Memo memo : this.memoList) {
-            if (memoNumber == memo.getNumber()) {
-                return memo;
-            }
-        }
-        return null;
     }
 }
