@@ -12,7 +12,6 @@ public class MemoList {
 
     public void create() {
         Scanner scanner = new Scanner(System.in);
-        int number = this.memoList.size() + 1;
 
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
@@ -26,7 +25,7 @@ public class MemoList {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String date = dateTimeFormatter.format(ZonedDateTime.now());
 
-        this.memoList.add(new Memo(number, name, password, content, date));
+        this.memoList.add(new Memo(getNewMemoNumber(), name, password, content, date));
     }
 
     public void update() {
@@ -115,7 +114,7 @@ public class MemoList {
         }
     }
 
-    public Memo getMemo(int memoNumber) {
+    private Memo getMemo(int memoNumber) {
         if (0 < memoNumber && memoNumber <= this.memoList.size()) {
             for (Memo memo : this.memoList) {
                 if (memoNumber == memo.getNumber()) {
@@ -124,5 +123,9 @@ public class MemoList {
             }
         }
         throw new RuntimeException("Not exists.");
+    }
+
+    private int getNewMemoNumber() {
+        return this.memoList.size() + 1;
     }
 }
