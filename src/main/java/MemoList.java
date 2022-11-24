@@ -87,12 +87,13 @@ public class MemoList {
 
     public void showAll() {
         List<Memo> sortedByDate = new ArrayList<>(this.memoList);
-        Collections.sort(sortedByDate);
         int size = sortedByDate.size();
 
         if (size == 0) {
             System.out.println("Memo is empty.%n");
         }
+
+        Collections.sort(sortedByDate);
 
         for (int i = size - 1; i >= 0; i--) {
             Memo memo = sortedByDate.get(i);
