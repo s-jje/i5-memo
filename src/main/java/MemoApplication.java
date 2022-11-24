@@ -36,6 +36,8 @@ public class MemoApplication {
                     System.out.println("Invalid input.");
                     System.out.println("Please enter a number from 1 to 5.");
                 }
+            } catch (NumberFormatException e) {
+                System.out.println("Your input is not a number.%n");
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             }
