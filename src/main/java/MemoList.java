@@ -54,32 +54,28 @@ public class MemoList {
             Scanner sc = new Scanner(System.in);
             System.out.println("삭제하실 글의 번호를 입력해주십쇼. 해당 기능을 종료하시려면 0000를 눌러주시길바랍니다.");
             String input = sc.nextLine();
-            // 되돌아가기
+
             if (input.equals("0000")) {
                 break;
             }
-            // 삭제 구현
-            int memoNumber = Integer.parseInt(input);
-            Memo memoAction = getMemo(memoNumber);
-            if (memoAction != null) {
-                System.out.println("해당 글의 비밀번호를 입력해주십쇼");
-                String pw = sc.nextLine();
 
-                if (memoAction.getPassword().equals(pw)) { // 글의 비밀번호와 pw가 맞을 경우
-                    memoList.remove(memoNumber - 1); // 글을 지운다
-                    System.out.println("삭제가 완료되었습니다.");
-                    int len = this.memoList.size();
-                    for (int i = 0; i < len; i++) {
-                        if (this.memoList.get(i).getNumber() - 1 != i) {
-                            this.memoList.get(i).setNumber(i + 1);
-                        }
+            int memoNumber = Integer.parseInt(input);
+            Memo memo = getMemo(Integer.parseInt(input));
+            System.out.println("해당 글의 비밀번호를 입력해주십쇼");
+            String pw = sc.nextLine();
+
+            if (memo.getPassword().equals(pw)) {
+                memoList.remove(memoNumber - 1);
+                System.out.println("삭제가 완료되었습니다.");
+                int len = this.memoList.size();
+                for (int i = 0; i < len; i++) {
+                    if (this.memoList.get(i).getNumber() - 1 != i) {
+                        this.memoList.get(i).setNumber(i + 1);
                     }
-                    break;
-                } else {
-                    System.out.println("비밀번호가 틀렸습니다. 처음부터 다시 진행해주십쇼");
                 }
+                break;
             } else {
-                System.out.println("해당 글의 번호가 존재하지 않습니다.");
+                System.out.println("비밀번호가 틀렸습니다. 처음부터 다시 진행해주십쇼");
             }
         }
     }
